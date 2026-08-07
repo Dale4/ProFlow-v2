@@ -1,0 +1,5 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ProFlow.Api/ProFlow.Api.csproj" />
+  </Folder>
+</Solution>
