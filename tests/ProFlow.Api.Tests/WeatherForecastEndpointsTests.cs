@@ -17,7 +17,7 @@ public class WeatherForecastEndpointsTests : IClassFixture<WebApplicationFactory
     [Fact]
     public async Task GetWeatherForecast_ReturnsFiveForecasts()
     {
-        var response = await _client.GetAsync("/weatherforecast");
+        using var response = await _client.GetAsync("/weatherforecast");
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
 

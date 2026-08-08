@@ -15,7 +15,7 @@ public class RootEndpointsTests : IClassFixture<WebApplicationFactory<Program>>
     [Fact]
     public async Task GetRoot_ReturnsHelloWorld()
     {
-        var response = await _client.GetAsync("/");
+        using var response = await _client.GetAsync("/");
 
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         Assert.Equal("Hello World", await response.Content.ReadAsStringAsync());
