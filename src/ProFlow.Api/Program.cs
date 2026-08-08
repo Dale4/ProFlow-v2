@@ -20,3 +20,5 @@ app.MapRootEndpoints();
 app.MapWeatherForecastEndpoints();
 
 app.Run();
+
+public partial class Program;
