@@ -10,8 +10,11 @@ public static class WeatherForecastEndpoints
 
     public static IEndpointRouteBuilder MapWeatherForecastEndpoints(this IEndpointRouteBuilder app)
     {
-        app.MapGet("/weatherforecast", () =>
+        app.MapGet("/weatherforecast", (ILoggerFactory loggerFactory) =>
             {
+                var logger = loggerFactory.CreateLogger("ProFlow.Api.Endpoints.WeatherForecast");
+                logger.LogInformation("GET /weatherforecast");
+
                 var forecast = Enumerable.Range(1, 5).Select(index =>
                     new WeatherForecast
                     (
@@ -21,6 +24,7 @@ public static class WeatherForecastEndpoints
                     ))
                     .ToArray();
 
+                logger.LogInformation("Returning {ForecastCount} weather forecasts", forecast.Length);
                 return forecast;
             })
             .WithName("GetWeatherForecast");
