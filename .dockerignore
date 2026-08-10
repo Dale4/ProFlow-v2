@@ -1,0 +1,17 @@
+**/.git
+**/.vs
+**/.vscode
+**/bin
+**/obj
+**/TestResults
+**/.idea
+**/*.user
+**/*.suo
+**/logs
+**/node_modules
+README.md
+.gitignore
+.github
+tests
+**/.DS_Store
+**/Thumbs.db
