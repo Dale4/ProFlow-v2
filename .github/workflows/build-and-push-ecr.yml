@@ -10,8 +10,6 @@ on:
 env:
   DOTNET_VERSION: "10.0.x"
   IMAGE_NAME: proflow-api
-  AWS_REGION: us-west-1
-  ECR_REPOSITORY: field-work-api
 
 permissions:
   contents: read
