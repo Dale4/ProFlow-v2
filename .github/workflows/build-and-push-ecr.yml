@@ -65,6 +65,7 @@ jobs:
           echo "image=${IMAGE}" >> "$GITHUB_OUTPUT"
           echo "short_sha=${SHORT_SHA}" >> "$GITHUB_OUTPUT"
           echo "tags=${IMAGE}:${SHORT_SHA},${IMAGE}:latest" >> "$GITHUB_OUTPUT"
+          echo "Test"
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
