@@ -4,3 +4,8 @@ GET {{ProFlow.Api_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+
+GET {{ProFlow.Api_HostAddress}}/logs
+Accept: application/json
+
+###
