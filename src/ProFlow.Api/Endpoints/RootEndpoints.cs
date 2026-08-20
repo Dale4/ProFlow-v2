@@ -1,3 +1,6 @@
+using Microsoft.FeatureManagement;
+using ProFlow.Api;
+
 namespace ProFlow.Api.Endpoints;
 
 public static class RootEndpoints
@@ -11,8 +14,13 @@ public static class RootEndpoints
             return "Hello World";
         });
 
-        app.MapGet("/logs", (ILoggerFactory loggerFactory) =>
+        app.MapGet("/logs", async (IFeatureManager featureManager, ILoggerFactory loggerFactory) =>
         {
+            if (!await featureManager.IsEnabledAsync(FeatureFlags.LogsEndpoint))
+            {
+                return Results.NotFound();
+            }
+
             var logger = loggerFactory.CreateLogger("ProFlow.Api.Endpoints.Root");
             logger.LogInformation("GET /logs");
 
